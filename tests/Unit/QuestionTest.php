@@ -13,8 +13,12 @@ class QuestionTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testSave()
     {
-        $this->assertTrue(true);
+        $user = $user = factory(\App\User::class)->make();
+        $user->save();
+        $question = factory(\App\Question::class)->make();
+        $question->user()->associate($user);
+        $this->assertTrue($question->save());
     }
 }
