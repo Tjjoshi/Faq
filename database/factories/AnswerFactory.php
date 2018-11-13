@@ -2,8 +2,9 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\Answer::class, function (Faker $faker) {
     return [
         //
+        'body' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
     ];
 });
