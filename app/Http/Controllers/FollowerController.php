@@ -10,7 +10,7 @@ class FollowerController extends Controller
 {
     public function index()
     {
-        return view('index', [
+        return view('Follow', [
             'users' => User::where('id', '!=', Auth::id())->get()
         ]);
     }
@@ -25,7 +25,7 @@ class FollowerController extends Controller
                 'name'=>$user->name,
             ]);
 
-            $user->notify(new UserFollowed(Auth()->user()) );
+            $user->notify(new FollowNotified(Auth()->user()) );
 
             return redirect()->route('users.index')->with('message', 'You are now friends with '. $user->name);
         } else {
