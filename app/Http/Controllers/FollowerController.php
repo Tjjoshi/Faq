@@ -27,7 +27,7 @@ class FollowerController extends Controller
 
             $user->notify(new FollowNotified(Auth()->user()) );
 
-            return redirect()->route('users.index')->with('message', 'You are now friends with '. $user->name);
+            return redirect()->route('users.index')->with('message', 'You are now friends with '. $user->id .'' .$user->name);
         } else {
             return redirect()->route('users.index')->with('message', 'You are already following this person');
         }
@@ -40,7 +40,7 @@ class FollowerController extends Controller
             $follow = Auth::user()->followers()->where('follower_id', $user->id)->first();
             $follow->delete();
 
-            return redirect()->route('users.index')->with('message', 'You are no longer friends with '. $user->name);
+            return redirect()->route('users.index')->with('message', 'You are no longer friends with '.$user->id.'' . $user->name);
         } else {
             return redirect()->route('users.index')->with('message', 'You are not following this person');
         }
