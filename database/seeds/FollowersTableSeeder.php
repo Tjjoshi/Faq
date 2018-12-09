@@ -14,9 +14,9 @@ class FollowersTableSeeder extends Seeder
         $users = App\User::all();
         for ($i = 1; $i <= 5; $i++) {
             $users->each(function ($user) {
-                $followers = factory(\App\Follower::class)->make();
-                $followers->user()->associate($user);
-                $followers->save();
+                $follows = factory(\App\Follower::class)->make();
+                $follows->user()->associate($user);
+                $follows->save();
             });
         }
     }
