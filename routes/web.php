@@ -33,6 +33,9 @@ Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
+Route::get('/users', 'FollowerController@index')->name('users.index');
+Route::post('/follow/{user}', 'FollowerController@follow')->name('users.follow');
+Route::delete('/unfollow/{user}', 'FollowerController@unfollow')->name('users.unfollow');
 
 Route::resources([
     'questions' => 'QuestionController',
