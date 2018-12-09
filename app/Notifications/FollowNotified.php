@@ -30,17 +30,18 @@ class FollowNotified extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['mail'];
     }
 
-    public function toDatabase($notifiable)
+    public function toMail($notifiable)
     {
-        return [
-            'follower_id' => $this->follower->id,
-            'follower_name' => $this->follower->name,
-        ];
-    }
 
+
+        return (new MailMessage)
+            ->greeting('Hello!')
+            ->line( $this->follower->email . ' ' .'is following you');
+
+    }
     /**
      * Get the mail representation of the notification.
      *
