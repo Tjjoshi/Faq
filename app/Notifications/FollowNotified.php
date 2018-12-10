@@ -39,7 +39,7 @@ class FollowNotified extends Notification
 
         return (new MailMessage)
             ->greeting('Hello!')
-            ->line( $this->follower->email . ' ' .'is following you');
+            ->line( $this->follower->name . ' ' .'is following you');
 
     }
     /**
