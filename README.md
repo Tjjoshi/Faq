@@ -7,6 +7,8 @@ User stories:
 4.	A following user is notified through email that the registered user (username) is following him/her.
 Explanation:  If I have registered as Toral Joshi and I am following Keith William, then Keith William will be notified “Toral is following you.”. Here Keith Willian has to be already registered previously, so he will be shown in the all users list and Toral Joshi can ‘Follow’ or ‘Unfollow’ him.
 
+A  link to the heroku :  http://faqfollow.herokuapp.com/
+
 Unit-Tests:
 1.	follow user test
 2.	Notification test
